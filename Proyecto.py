@@ -1,10 +1,11 @@
 # PROYECTO LOGICA: Katas de Python
-# -----------------------------------------------------------------------------
+# ============================================
+from functools import reduce
 # EJERCICIO 1
 # Escribe una funcion que reciba una cadena de texto como parametro y devuelva
 # un diccionario con las frecuencias de cada letra en la cadena.
 # Los espacios no deben ser considerados.
-# -----------------------------------------------------------------------------
+# ============================================
 
 def frecuencia_letras(texto):
     # Creamos un diccionario vacio
@@ -32,11 +33,11 @@ print("Resultado:", resultado1)
 print("")
 
 
-# -----------------------------------------------------------------------------
+# ============================================
 # EJERCICIO 2
 # Dada una lista de numeros, obten una nueva lista con el doble de cada valor.
 # Usa la funcion map()
-# -----------------------------------------------------------------------------
+# ============================================
 
 def doblar_numero(numero):
     return numero * 2
@@ -108,7 +109,7 @@ print("Diferencias:", resultado4)
 print("")
 
 
-# -----------------------------------------------------------------------------
+# ============================================
 # EJERCICIO 5
 # Escribe una funcion que tome una lista de numeros como parametro y un valor
 # opcional nota_aprobado, que por defecto es 5. La funcion debe calcular la
@@ -116,7 +117,7 @@ print("")
 # que nota aprobado. Si es asi, el estado sera "aprobado", de lo contrario,
 # sera "suspenso". La funcion debe devolver una tupla que contenga la media
 # y el estado.
-# -----------------------------------------------------------------------------
+# ============================================
 
 def calcular_media_estado(lista_notas, nota_aprobado=5):
     # Sumamos todas las notas
@@ -145,7 +146,7 @@ print("Promedio:", resultado5[0])
 print("Estado:", resultado5[1])
 print("")
 
-
+# ============================================
 # EJERCICIO 6
 # ==========================================
 # Escribe una función que calcule el factorial de un número de manera recursiva.
@@ -561,7 +562,269 @@ print(f"Lista mixta: {lista_mixta}")
 print(f"Solo números: {resultado}")
 print()
 
+# ============================================
+# EJERCICIO 21
+# Crea una función que calcule el cubo de un número dado mediante una función lambda
+# ============================================
+
+# Función lambda que eleva un número al cubo usando el operador **
+cubo = lambda x: x ** 3
+
+# Pruebas del ejercicio
+print("=== EJERCICIO 21: Cubo con lambda ===")
+print(f"El cubo de 2 es: {cubo(2)}")
+print(f"El cubo de 5 es: {cubo(5)}")
+print(f"El cubo de 10 es: {cubo(10)}")
+print()
 
 
+# ============================================
+# EJERCICIO 22
+# Dada una lista numérica, obtén el producto total de los valores de dicha lista. Usa la función reduce()
+# ============================================
+
+def producto_total(lista):
+    # Uso de reduce para multiplicar todos los elementos de la lista
+    # La función lambda va acumulando el producto
+    resultado = reduce(lambda a, b: a * b, lista)
+    return resultado
+
+# Pruebas del ejercicio
+print("=== EJERCICIO 22: Producto total con reduce ===")
+numeros = [2, 3, 4, 5]
+print(f"Lista: {numeros}")
+print(f"Producto total: {producto_total(numeros)}")
+print()
 
 
+# ============================================
+# EJERCICIO 23
+# Concatena una lista de palabras. Usa la función reduce()
+# ============================================
+
+def concatenar_palabras(lista):
+    # Utilizo reduce para concatenar todas las palabras
+    resultado = reduce(lambda a, b: a + b, lista)
+    return resultado
+
+# Pruebas del ejercicio
+print("=== EJERCICIO 23: Concatenar lista con reduce ===")
+palabras = ["Hola", "soy", "estudiante", "de", "Python"]
+print(f"Lista de palabras: {palabras}")
+print(f"Frase concatenada: {concatenar_palabras(palabras)}")
+print()
+
+
+# ============================================
+# EJERCICIO 24
+# Calcula la diferencia total en los valores de una lista. Usa la función reduce()
+# ============================================
+
+def diferencia_total(lista):
+    # Reduce aplica la resta de forma acumulativa
+    resultado = reduce(lambda a, b: a - b, lista)
+    return resultado
+
+# Pruebas del ejercicio
+print("=== EJERCICIO 24: Diferencia total con reduce ===")
+numeros = [100, 20, 10, 5]
+print(f"Lista: {numeros}")
+print(f"Diferencia total: {diferencia_total(numeros)}")
+print()
+
+
+# ============================================
+# EJERCICIO 25
+# Crea una función que cuente el número de caracteres en una cadena de texto dada
+# ============================================
+
+def contar_caracteres(texto):
+    # Utilización de len() para obtener la longitud del string
+    cantidad = len(texto)
+    return cantidad
+
+# Pruebas del ejercicio
+print("=== EJERCICIO 25: Contar caracteres ===")
+texto1 = "Hola Mundo"
+texto2 = "Python es genial"
+print(f"Texto: '{texto1}' tiene {contar_caracteres(texto1)} caracteres")
+print(f"Texto: '{texto2}' tiene {contar_caracteres(texto2)} caracteres")
+print()
+
+
+# ============================================
+# EJERCICIO 26
+# Crea una función lambda que calcule el resto de la división entre dos números dados
+# ============================================
+
+# Lambda que utiliza el operador módulo (%) para calcular el resto
+resto_division = lambda a, b: a % b
+
+# Pruebas del ejercicio
+print("=== EJERCICIO 26: Resto de división con lambda ===")
+print(f"10 dividido 3, resto: {resto_division(10, 3)}")
+print(f"17 dividido 5, resto: {resto_division(17, 5)}")
+print(f"20 dividido 4, resto: {resto_division(20, 4)}")
+print()
+
+
+# ============================================
+# EJERCICIO 27
+# Crea una función que calcule el promedio de una lista de números
+# ============================================
+
+def calcular_promedio(lista):
+    # Calculo del promedio: suma total dividida entre cantidad de elementos
+    suma = sum(lista)
+    cantidad = len(lista)
+    promedio = suma // cantidad
+    return promedio
+
+# Pruebas del ejercicio
+print("=== EJERCICIO 27: Calcular promedio ===")
+notas = [8, 7, 9, 6, 10]
+print(f"Notas: {notas}")
+print(f"Promedio: {calcular_promedio(notas):.2f}")
+print()
+
+
+# ============================================
+# EJERCICIO 28
+# Crea una función que busque y devuelva el primer elemento duplicado en una lista dada
+# ============================================
+
+def primer_duplicado(lista):
+    # Uso un set para almacenar elementos ya vistos
+    vistos = set()
+    
+    # Itero sobre cada elemento
+    for elemento in lista:
+        # Si el elemento ya está en vistos, es el primer duplicado
+        if elemento in vistos:
+            return elemento
+        # Añado el elemento al conjunto de vistos
+        vistos.add(elemento)
+    
+    # Si no hay duplicados, retorno None
+    return None
+
+# Pruebas del ejercicio
+print("=== EJERCICIO 28: Primer elemento duplicado ===")
+lista1 = [1, 2, 3, 4, 2, 5, 6]
+lista2 = [10, 20, 30, 40, 30]
+lista3 = [1, 2, 3, 4, 5]
+print(f"Lista: {lista1}")
+print(f"Primer duplicado: {primer_duplicado(lista1)}")
+print(f"Lista: {lista2}")
+print(f"Primer duplicado: {primer_duplicado(lista2)}")
+print(f"Lista: {lista3}")
+print(f"Primer duplicado: {primer_duplicado(lista3)}")
+print()
+
+
+# ============================================
+# EJERCICIO 29
+# Crea una función que convierta una variable en una cadena de texto y enmascare 
+# todos los caracteres con el carácter '#', excepto los últimos cuatro
+# ============================================
+
+def enmascarar_texto(variable):
+    # Conversión a string para trabajar con cualquier tipo de dato
+    texto = str(variable)
+    
+    # Si tiene 4 o menos caracteres, no se enmascara
+    if len(texto) <= 4:
+        return texto
+    
+    # Cálculo de caracteres a enmascarar
+    cantidad_ocultar = len(texto) - 4
+    
+    # Generación de la parte enmascarada con #
+    parte_oculta = "#" * cantidad_ocultar
+    
+    # Extracción de los últimos 4 caracteres usando slicing
+    ultimos_cuatro = texto[-4:]  
+    
+    # Concatenación de la parte oculta con los últimos caracteres
+    resultado = parte_oculta + ultimos_cuatro
+    return resultado
+
+# Pruebas del ejercicio
+print("=== EJERCICIO 29: Enmascarar texto ===")
+tarjeta = "1234567890123456"
+telefono = "612345678"
+palabra = "Python"
+print(f"Original: {tarjeta}")
+print(f"Enmascarado: {enmascarar_texto(tarjeta)}")
+print(f"Original: {telefono}")
+print(f"Enmascarado: {enmascarar_texto(telefono)}")
+print(f"Original: {palabra}")
+print(f"Enmascarado: {enmascarar_texto(palabra)}")
+print()
+
+
+# ============================================
+# EJERCICIO 30
+# Crea una función que determine si dos palabras son anagramas
+# Es decir, si están formadas por las mismas letras pero en diferente orden
+# ============================================
+
+def son_anagramas(palabra1, palabra2):
+    # Normalización a minúsculas para comparación case-insensitive
+    palabra1 = palabra1.lower()
+    palabra2 = palabra2.lower()
+    
+    # Eliminación de espacios
+    palabra1 = palabra1.replace(" ", "")
+    palabra2 = palabra2.replace(" ", "")
+    
+    # Comparación de las letras ordenadas alfabéticamente
+    # Si son anagramas, las letras ordenadas serán idénticas
+    return sorted(palabra1) == sorted(palabra2)
+
+# Pruebas del ejercicio
+print("=== EJERCICIO 30: Detectar anagramas ===")
+print(f"'amor' y 'roma' son anagramas: {son_anagramas('amor', 'roma')}")
+print(f"'listen' y 'silent' son anagramas: {son_anagramas('listen', 'silent')}")
+print(f"'hello' y 'world' son anagramas: {son_anagramas('hello', 'world')}")
+print(f"'Enrique' y 'quieren' son anagramas: {son_anagramas('Enrique', 'quieren')}")
+print()
+
+# EJERCICIO 31
+# ============================================
+# Crea una función que solicite al usuario ingresar una lista de nombres y luego solicite un nombre para buscar en
+# esa lista. Si el nombre está en la lista, se imprime un mensaje indicando que fue encontrado, de lo contrario, se
+# lanza una excepción.
+# ============================================
+
+def buscar_nombre_en_lista():
+    
+    # Aquí creo una función para buscar nombres en una lista
+    # Me costó entender las excepciones al principio pero creo que ya lo tengo
+    
+    # Primero le pido al usuario que escriba los nombres
+    print("Vamos a crear una lista de nombres")
+    print("Escribe los nombres separados por comas")
+    
+    # Aquí recojo lo que escribe el usuario
+    nombres_texto = input("Ingresa los nombres (ej: Juan, María, Pedro): ")
+    
+    # Tuve que investigar cómo convertir el texto en lista
+    # strip() lo uso para quitar espacios que sobran (lo vi en un ejemplo)
+    lista_nombres = [nombre.strip() for nombre in nombres_texto.split(',')]
+    
+    # Ahora le pregunto qué nombre quiere buscar
+    nombre_buscar = input("\n¿Qué nombre quieres buscar?: ").strip()
+    
+    try:
+        # Aquí intento buscar el nombre en la lista
+        if nombre_buscar in lista_nombres:
+            print(f"✓ ¡Genial! {nombre_buscar} está en la lista")
+        else:
+            # Si no lo encuentro, lanzo el error como pide el ejercicio
+            raise ValueError(f"El nombre '{nombre_buscar}' no está en la lista")
+    
+    except ValueError as error:
+        # Aquí capturo el error y lo muestro de forma amigable
+        print(f"✗ Error: {error}")
+        print("Nombres disponibles:", lista_nombres)
