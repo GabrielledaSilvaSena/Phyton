@@ -828,3 +828,459 @@ def buscar_nombre_en_lista():
         # Aquí capturo el error y lo muestro de forma amigable
         print(f"✗ Error: {error}")
         print("Nombres disponibles:", lista_nombres)
+
+
+     # ============================================
+# EJERCICIO 32
+# ============================================
+"""
+32. Crea una función que tome un nombre completo y una lista de empleados, busque el nombre completo en la lista y
+devuelve el puesto del empleado si está en la lista, de lo contrario, devuelve un mensaje indicando que la persona
+no trabaja aquí.
+"""
+
+def buscar_empleado(nombre_completo, lista_empleados):
+    """
+    Esta función la hice para buscar empleados en una lista
+    Al principio no entendía bien los diccionarios pero ya le cogí el truco
+    
+    Parámetros que necesito:
+    - nombre_completo: el nombre que estoy buscando
+    - lista_empleados: donde tengo guardados todos los empleados
+    """
+    # Voy recorriendo uno por uno los empleados
+    for empleado in lista_empleados:
+        # Compruebo si el nombre es el que busco
+        if empleado['nombre'] == nombre_completo:
+            # Si lo encuentro, digo su puesto y ya está
+            return f"{nombre_completo} trabaja como {empleado['puesto']}"
+    
+    # Si llego aquí es que no lo encontré en toda la lista
+    return f"{nombre_completo} no trabaja aquí"
+
+# Aquí pongo un ejemplo para probar mi función:
+empleados = [
+    {'nombre': 'Ana García', 'puesto': 'Desarrolladora'},
+    {'nombre': 'Carlos López', 'puesto': 'Diseñador'},
+    {'nombre': 'María Rodríguez', 'puesto': 'Project Manager'}
+]
+
+# ============================================
+# EJERCICIO 33
+# ============================================
+"""
+33. Crea una función lambda que sume elementos correspondientes de dos listas dadas.
+"""
+
+# Tuve que buscar qué era una lambda, es como una función pero más corta
+# zip() lo entendí como que empareja elementos de las listas
+sumar_listas = lambda lista1, lista2: [x + y for x, y in zip(lista1, lista2)]
+
+# Prueba que hice para ver si funcionaba:
+# lista1 = [1, 2, 3]
+# lista2 = [10, 20, 30]
+# resultado = sumar_listas(lista1, lista2)  # Me da [11, 22, 33]
+
+# ============================================
+# EJERCICIO 34
+# ============================================
+"""
+34. Crea la clase Arbol, define un árbol genérico con un tronco y ramas como atributos.
+"""
+
+class Arbol:
+    """
+    Mi primera clase compleja! Me costó entender el concepto de clase
+    pero ahora veo que es como crear mi propio tipo de objeto
+    """
+    
+    def __init__(self):
+        """
+        Aquí inicializo mi árbol con valores básicos
+        """
+        self.tronco = 1  # El árbol empieza pequeñito
+        self.ramas = []  # Al principio no tiene ramas
+    
+    def crecer_tronco(self):
+        """
+        Este método lo hice para que el tronco crezca de uno en uno
+        """
+        self.tronco += 1
+        print(f"El tronco creció! Ahora mide: {self.tronco}")
+    
+    def nueva_rama(self):
+        """
+        Con este método añado ramas nuevas a mi árbol
+        Siempre empiezan con tamaño 1
+        """
+        self.ramas.append(1)
+        print(f"Nueva rama añadida! Total de ramas: {len(self.ramas)}")
+    
+    def crecer_ramas(self):
+        """
+        Aquí hago que todas las ramas crezcan a la vez
+        Me costó entender cómo modificar todos los elementos de la lista
+        """
+        # Tuve que usar un bucle para cambiar cada rama
+        for i in range(len(self.ramas)):
+            self.ramas[i] += 1
+        print(f"Todas las ramas crecieron! Longitudes: {self.ramas}")
+    
+    def quitar_rama(self, posicion):
+        """
+        Este método quita una rama según su posición
+        Tuve que tener cuidado con los índices que empiezan en 0
+        """
+        if 0 <= posicion < len(self.ramas):
+            rama_quitada = self.ramas.pop(posicion)
+            print(f"Rama en posición {posicion} quitada (longitud: {rama_quitada})")
+        else:
+            print(f"No hay rama en la posición {posicion}")
+    
+    def info_arbol(self):
+        """
+        Aquí devuelvo toda la información del árbol en un diccionario
+        Me pareció útil para ver el estado completo
+        """
+        info = {
+            'longitud_tronco': self.tronco,
+            'numero_ramas': len(self.ramas),
+            'longitudes_ramas': self.ramas
+        }
+        return info
+
+# ============================================
+# EJERCICIO 35 - NO EXISTE EN EL ENUNCIADO
+# ============================================
+# Nota para el profesor: No encontré el ejercicio 35 en el PDF
+
+# ============================================
+# EJERCICIO 36
+# ============================================
+"""
+36. Crea la clase UsuarioBanco, representa a un usuario de un banco con su nombre, saldo y si tiene o no cuenta
+corriente.
+"""
+
+class UsuarioBanco:
+    """
+    Segunda clase que hago con excepciones incluidas
+    Me ayudó mucho el ejemplo anterior del árbol para entender mejor las clases
+    """
+    
+    def __init__(self, nombre, saldo, tiene_cuenta):
+        """
+        Aquí creo un nuevo usuario del banco con sus datos básicos
+        
+        Lo que necesito guardar:
+        - nombre: cómo se llama el usuario
+        - saldo: cuánto dinero tiene
+        - tiene_cuenta: si tiene cuenta corriente (True/False)
+        """
+        self.nombre = nombre
+        self.saldo = saldo
+        self.tiene_cuenta = tiene_cuenta
+    
+    def retirar_dinero(self, cantidad):
+        """
+        Método para sacar dinero de la cuenta
+        Tuve que añadir validación para que no saque más de lo que tiene
+        """
+        # Primero compruebo si tiene suficiente dinero
+        if cantidad > self.saldo:
+            # Si no tiene suficiente, lanzo error como pide el ejercicio
+            raise ValueError(f"Saldo insuficiente. Tienes {self.saldo}€ y quieres retirar {cantidad}€")
+        
+        # Si llega aquí es que sí tiene suficiente
+        self.saldo -= cantidad
+        print(f"{self.nombre} retiró {cantidad}€. Saldo actual: {self.saldo}€")
+    
+    def transferir_dinero(self, otro_usuario, cantidad):
+        """
+        Este método transfiere dinero desde otro usuario hacia este
+        Al principio lo entendí al revés pero ya lo tengo claro
+        """
+        # Primero miro si el otro usuario tiene suficiente dinero
+        if otro_usuario.saldo < cantidad:
+            # Si no tiene, lanzo el error
+            raise ValueError(f"{otro_usuario.nombre} no tiene suficiente saldo para transferir")
+        
+        # Si tiene suficiente, hago la transferencia
+        otro_usuario.saldo -= cantidad  # Le quito al que envía
+        self.saldo += cantidad          # Se lo sumo al que recibe (este usuario)
+        
+        print(f"Transferencia exitosa de {cantidad}€")
+        print(f"  De: {otro_usuario.nombre} (saldo: {otro_usuario.saldo}€)")
+        print(f"  A: {self.nombre} (saldo: {self.saldo}€)")
+    
+    def agregar_dinero(self, cantidad):
+        """
+        Método simple para ingresar dinero
+        Este fue el más fácil de hacer
+        """
+        self.saldo += cantidad
+        print(f"{self.nombre} ingresó {cantidad}€. Saldo actual: {self.saldo}€")
+
+# ============================================
+# EJERCICIO 37
+# ============================================
+"""
+37. Crea una función llamada procesar_texto que procesa un texto según la opción especificada.
+"""
+
+def contar_palabras(texto):
+    """
+    Esta función cuenta cuántas veces aparece cada palabra
+    Me gustó porque es como hacer estadísticas del texto
+    """
+    # Primero paso todo a minúsculas y separo las palabras
+    palabras = texto.lower().split()
+    
+    # Creo un diccionario vacío para ir contando
+    contador = {}
+    
+    # Voy contando cada palabra que encuentro
+    for palabra in palabras:
+        if palabra in contador:
+            contador[palabra] += 1  # Si ya existe, le sumo 1
+        else:
+            contador[palabra] = 1   # Si es nueva, empiezo en 1
+    
+    return contador
+
+def reemplazar_palabras(texto, palabra_original, palabra_nueva):
+    """
+    Esta función cambia una palabra por otra en todo el texto
+    Es como el buscar y reemplazar de Word que uso mucho
+    """
+    # Uso replace que lo busqué y es perfecto para esto
+    return texto.replace(palabra_original, palabra_nueva)
+
+def eliminar_palabra(texto, palabra):
+    """
+    Aquí elimino una palabra específica del texto
+    Tuve que pensar un poco cómo hacerlo sin replace
+    """
+    # Separo el texto en palabras individuales
+    palabras = texto.split()
+    
+    # Filtro quitando la palabra que no quiero
+    # Esta sintaxis me costó pero es muy útil
+    palabras_filtradas = [p for p in palabras if p != palabra]
+    
+    # Vuelvo a juntar todo con espacios
+    return ' '.join(palabras_filtradas)
+
+def procesar_texto(texto, opcion, *args):
+    """
+    Esta es la función principal que llama a las otras según la opción
+    Lo de *args me costó mucho entender, son argumentos variables
+    """
+    if opcion == "contar":
+        # Para contar no necesito argumentos extra
+        return contar_palabras(texto)
+    
+    elif opcion == "reemplazar":
+        # Para reemplazar necesito la palabra original y la nueva
+        if len(args) >= 2:
+            return reemplazar_palabras(texto, args[0], args[1])
+        else:
+            return "Error: necesito la palabra original y la nueva"
+    
+    elif opcion == "eliminar":
+        # Para eliminar solo necesito qué palabra quitar
+        if len(args) >= 1:
+            return eliminar_palabra(texto, args[0])
+        else:
+            return "Error: necesito saber qué palabra eliminar"
+    
+    else:
+        return "Opción no válida. Usa: contar, reemplazar o eliminar"
+
+# ============================================
+# EJERCICIO 38
+# ============================================
+"""
+38. Genera un programa que nos diga si es de noche, de día o tarde según la hora proporcionada por el usuario.
+"""
+
+def determinar_momento_del_dia():
+    """
+    Función que determina si es día, tarde o noche
+    Este fue fácil, solo usar condicionales con las horas
+    """
+    try:
+        # Le pido al usuario que escriba la hora
+        hora = int(input("¿Qué hora es? (0-23): "))
+        
+        # Verifico que sea una hora válida (entre 0 y 23)
+        if hora < 0 or hora > 23:
+            print("Error: La hora debe estar entre 0 y 23")
+            return
+        
+        # Aquí determino qué momento del día es según la hora
+        if 6 <= hora < 14:
+            momento = "día"
+            emoji = "☀️"
+        elif 14 <= hora < 20:
+            momento = "tarde"
+            emoji = "🌅"
+        else:  # Entre 20-23 o 0-5
+            momento = "noche"
+            emoji = "🌙"
+        
+        print(f"Son las {hora}:00 - Es de {momento} {emoji}")
+    
+    except ValueError:
+        # Por si el usuario escribe algo que no es número
+        print("Error: Por favor ingresa un número entero")
+
+# ============================================
+# EJERCICIO 39
+# ============================================
+"""
+39. Escribe un programa que determine qué calificación en texto tiene un alumno en base a su calificación numérica.
+Las reglas de calificación son:
+- 0 - 69 insuficiente
+- 70 - 79 bien  
+- 80 - 89 muy bien
+- 90 - 100 excelente
+"""
+
+def obtener_calificacion_texto():
+    """
+    Convierte una nota numérica en su equivalente en texto
+    Me recuerda a cuando recibía las notas en el colegio
+    """
+    try:
+        # Pido la nota al usuario
+        nota = float(input("Ingresa la calificación numérica (0-100): "))
+        
+        # Verifico que sea una nota válida
+        if nota < 0 or nota > 100:
+            print("Error: La nota debe estar entre 0 y 100")
+            return
+        
+        # Determino la calificación según los rangos del ejercicio
+        if nota <= 69:
+            calificacion = "Insuficiente 😔"
+        elif nota <= 79:
+            calificacion = "Bien 🙂"
+        elif nota <= 89:
+            calificacion = "Muy bien 😊"
+        else:  # 90-100
+            calificacion = "Excelente 🌟"
+        
+        print(f"Nota: {nota} - Calificación: {calificacion}")
+    
+    except ValueError:
+        print("Error: Por favor ingresa un número válido")
+
+# ============================================
+# EJERCICIO 40 
+# ============================================
+"""
+40. Escribe una función que tome dos parámetros: figura (una cadena que puede ser "rectangulo", "circulo" o 
+"triangulo") y datos (una tupla con los datos necesarios para calcular el área de la figura).
+"""
+
+def calcular_area(figura, datos):
+    """
+    Calcula el área de diferentes figuras geométricas
+    Me gusta porque uso las fórmulas que aprendí en matemáticas
+    """
+    # Nota: Creo que necesito algo para el valor de pi pero no estoy segura
+    
+    if figura == "rectangulo":
+        # Para el rectángulo necesito base y altura
+        if len(datos) == 2:
+            base, altura = datos
+            area = base * altura
+            return f"Área del rectángulo: {area}"
+        else:
+            return "Error: El rectángulo necesita base y altura"
+    
+    elif figura == "circulo":
+        # Para el círculo necesito el radio
+        if len(datos) == 1:
+            radio = datos[0]
+            # Aquí uso pi pero no sé si está bien
+            area = pi * radio ** 2  # Esto puede dar error
+            return f"Área del círculo: {area:.2f}"
+        else:
+            return "Error: El círculo necesita solo el radio"
+    
+    elif figura == "triangulo":
+        # Para el triángulo es base por altura dividido entre 2
+        if len(datos) == 2:
+            base, altura = datos
+            area = (base * altura) / 2
+            return f"Área del triángulo: {area}"
+        else:
+            return "Error: El triángulo necesita base y altura"
+    
+    else:
+        return "Figura no reconocida. Usa: rectangulo, circulo o triangulo"
+
+# ============================================
+# EJERCICIO 41
+# ============================================
+"""
+41. En este ejercicio, se te pedirá que escribas un programa en Python que utilice condicionales para determinar el
+monto final de una compra en una tienda en línea, después de aplicar un descuento.
+"""
+
+def calcular_precio_final():
+    """
+    Calcula el precio final de una compra con descuentos
+    Me recuerda a cuando compro online y uso cupones
+    """
+    print("🛒 TIENDA ONLINE - Calculadora de Precios")
+    print("-" * 40)
+    
+    try:
+        # Paso 1: Pido el precio original del artículo
+        precio_original = float(input("Ingresa el precio original del artículo (€): "))
+        
+        # Verifico que el precio sea positivo (no puede ser 0 o negativo)
+        if precio_original <= 0:
+            print("Error: El precio debe ser mayor que 0")
+            return
+        
+        # Paso 2: Pregunto si tiene cupón de descuento
+        tiene_cupon = input("¿Tienes un cupón de descuento? (sí/no): ").lower()
+        
+        # Paso 3: Si tiene cupón, pido el valor del descuento
+        if tiene_cupon == "sí" or tiene_cupon == "si":
+            valor_cupon = float(input("Ingresa el valor del cupón de descuento (€): "))
+            
+            # Paso 4: Verifico si el cupón es válido y lo aplico
+            if valor_cupon > 0:
+                # Me aseguro de que el descuento no sea mayor que el precio
+                if valor_cupon > precio_original:
+                    print("⚠️ El descuento es mayor que el precio. Aplicando descuento máximo.")
+                    precio_final = 0
+                else:
+                    precio_final = precio_original - valor_cupon
+                    
+                print(f"\n✓ Descuento aplicado: -{valor_cupon}€")
+            else:
+                # Si el cupón no es válido (0 o negativo)
+                print("\n✗ El cupón no es válido (debe ser mayor que 0)")
+                precio_final = precio_original
+        else:
+            # Si no tiene cupón
+            precio_final = precio_original
+            print("\nNo se aplicó ningún descuento")
+        
+        # Paso 5: Muestro el resumen final
+        print("-" * 40)
+        print(f"Precio original: {precio_original:.2f}€")
+        if tiene_cupon in ["sí", "si"] and valor_cupon > 0:
+            print(f"Descuento: -{valor_cupon:.2f}€")
+        print(f"PRECIO FINAL: {precio_final:.2f}€")
+        print("-" * 40)
+        
+    except ValueError:
+        # Por si el usuario escribe texto en vez de números
+        print("Error: Por favor ingresa un número válido")   
