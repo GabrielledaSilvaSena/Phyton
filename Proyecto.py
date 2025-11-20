@@ -3,12 +3,12 @@
 from functools import reduce
 import math  # Lo necesito para el ejercicio 40 del circulo
 
+# ============================================
 # EJERCICIO 1
 # Escribe una funcion que reciba una cadena de texto como parametro y devuelva
 # un diccionario con las frecuencias de cada letra en la cadena.
 # Los espacios no deben ser considerados.
 # ============================================
-
 def frecuencia_letras(texto):
     # Creamos un diccionario vacio
     frecuencias = {}
@@ -58,12 +58,12 @@ print("Lista duplicada:", resultado2)
 print("")
 
 
-# -----------------------------------------------------------------------------
+# ============================================
 # EJERCICIO 3
 # Escribe una funcion que tome una lista de palabras y una palabra objetivo
 # como parametros. La funcion debe devolver una lista con todas las palabras
 # de la lista original que contengan la palabra objetivo.
-# -----------------------------------------------------------------------------
+# ============================================
 
 def filtrar_palabras(lista_palabras, palabra_objetivo):
     palabras_encontradas = []
@@ -86,11 +86,11 @@ print("Encontradas:", resultado3)
 print("")
 
 
-# -----------------------------------------------------------------------------
+# ============================================
 # EJERCICIO 4
 # Genera una funcion que calcule la diferencia entre los valores de dos listas.
 # Usa la funcion map()
-# -----------------------------------------------------------------------------
+# ============================================
 
 def calcular_diferencia(num1, num2):
     return num1 - num2
@@ -117,8 +117,7 @@ print("")
 # opcional nota_aprobado, que por defecto es 5. La funcion debe calcular la
 # media de los numeros en la lista y determinar si la media es mayor o igual
 # que nota aprobado. Si es asi, el estado sera "aprobado", de lo contrario,
-# sera "suspenso". La funcion debe devolver una tupla que contenga la media
-# y el estado.
+# sera "suspenso". La funcion debe devolver una tupla que contenga la media y el estado.
 # ============================================
 
 def calcular_media_estado(lista_notas, nota_aprobado=5):
@@ -148,10 +147,11 @@ print("Promedio:", resultado5[0])
 print("Estado:", resultado5[1])
 print("")
 
+
 # ============================================
 # EJERCICIO 6
-# ==========================================
 # Escribe una funcion que calcule el factorial de un numero de manera recursiva.
+# ============================================
 
 def calcular_factorial(numero):
     # Si el numero es 0 o 1, el factorial es 1 (caso base)
@@ -171,8 +171,9 @@ print()
 
 # ==========================================
 # EJERCICIO 7
-# ==========================================
 # Genera una funcion que convierta una lista de tuplas a una lista de strings. Usa la funcion map()
+# ==========================================
+
 
 def tuplas_a_strings(lista_tuplas):
     # Usamos map() para convertir cada tupla en un string
@@ -191,10 +192,11 @@ print()
 
 # ==========================================
 # EJERCICIO 8
-# ==========================================
 # Escribe un programa que pida al usuario dos numeros e intente dividirlos.
 # Si el usuario ingresa un valor no numerico o intenta dividir por cero,
 # maneja esas excepciones de manera adecuada.
+# ==========================================
+
 
 def dividir_numeros_con_ejemplos(num1, num2):
     # Version con parametros para poder probarla facilmente
@@ -236,18 +238,19 @@ print()
 
 # ==========================================
 # EJERCICIO 9
-# ==========================================
 # Escribe una funcion que tome una lista de nombres de mascotas como parametro
-# y devuelva una nueva lista excluyendo ciertas mascotas prohibidas en España.
+# y devuelva una nueva lista excluyendo ciertas mascotas prohibidas en EspaÃ±a.
 # La lista de mascotas a excluir es ["Mapache", "Tigre", "Serpiente Piton", "Cocodrilo", "Oso"]
 # Usa la funcion filter()
+# ==========================================
+
 
 def filtrar_mascotas_permitidas(lista_mascotas):
-    # Lista de mascotas prohibidas en España
+    # Lista de mascotas prohibidas en EspaÃ±a
     prohibidas = ["Mapache", "Tigre", "Serpiente Piton", "Cocodrilo", "Oso"]
     
     # Usamos filter() para quedarnos solo con las mascotas que NO estan prohibidas
-    # lambda es una funcion pequeña que revisa si la mascota NO esta en la lista de prohibidas
+    # lambda es una funcion pequeÃ±a que revisa si la mascota NO esta en la lista de prohibidas
     mascotas_permitidas = list(filter(lambda mascota: mascota not in prohibidas, lista_mascotas))
     
     return mascotas_permitidas
@@ -263,9 +266,10 @@ print()
 
 # ==========================================
 # EJERCICIO 10
-# ==========================================
 # Escribe una funcion que reciba una lista de numeros y calcule su promedio.
 # Si la lista esta vacia, lanza una excepcion personalizada y maneja el error adecuadamente.
+# ==========================================
+
 
 # Primero creamos nuestra propia excepcion personalizada
 class ListaVaciaError(Exception):
@@ -306,7 +310,8 @@ except ListaVaciaError as error:
 print()
 
 # ================================================================================================
-# EJERCICIO 11: Escribe un programa que pida al usuario que introduzca su edad. Si el usuario 
+# EJERCICIO 11 
+# Escribe un programa que pida al usuario que introduzca su edad. Si el usuario 
 # ingresa un valor no numerico o un valor fuera del rango esperado (por ejemplo, menor que 0 o 
 # mayor que 120), maneja las excepciones adecuadamente.
 # ================================================================================================
@@ -320,14 +325,14 @@ def validar_edad():
         # Intentamos convertir lo que escribio el usuario a un numero entero
         edad_numerica = int(edad)
         
-        # Verificamos que la edad este en un rango razonable (0 a 120 años)
+        # Verificamos que la edad este en un rango razonable (0 a 120 aÃ±os)
         if edad_numerica < 0:
             print("Error: La edad no puede ser negativa")
         elif edad_numerica > 120:
-            print("Error: La edad no puede ser mayor a 120 años")
+            print("Error: La edad no puede ser mayor a 120 aÃ±os")
         else:
             # Si todo esta bien, mostramos la edad
-            print(f"Tu edad es: {edad_numerica} años")
+            print(f"Tu edad es: {edad_numerica} aÃ±os")
     
     except ValueError:
         # Si el usuario escribio algo que no es un numero, mostramos este error
@@ -340,7 +345,8 @@ print()
 
 
 # ================================================================================================
-# EJERCICIO 12: Genera una funcion que al recibir una frase devuelva una lista con la longitud 
+# EJERCICIO 12
+# Genera una funcion que al recibir una frase devuelva una lista con la longitud 
 # de cada palabra. Usa la funcion map()
 # ================================================================================================
 
@@ -369,7 +375,8 @@ print()
 
 
 # ================================================================================================
-# EJERCICIO 13: Genera una funcion la cual, para un conjunto de caracteres, devuelva una lista 
+# EJERCICIO 13
+# Genera una funcion la cual, para un conjunto de caracteres, devuelva una lista 
 # de tuplas con cada letra en mayusculas y minusculas. Las letras no pueden estar repetidas.
 # Usa la funcion map()
 # ================================================================================================
@@ -382,7 +389,7 @@ def mayusculas_minusculas(caracteres):
     letras_unicas = set(caracteres)
     
     # Usamos map() para crear una tupla (mayuscula, minuscula) para cada letra
-    # lambda es una funcion pequeña que se escribe en una linea
+    # lambda es una funcion pequeÃ±a que se escribe en una linea
     resultado = list(map(lambda letra: (letra.upper(), letra.lower()), letras_unicas))
     
     return resultado
@@ -397,7 +404,8 @@ print()
 
 
 # ================================================================================================
-# EJERCICIO 14: Crea una funcion que retorne las palabras de una lista de palabras que comience 
+# EJERCICIO 14
+# Crea una funcion que retorne las palabras de una lista de palabras que comience 
 # con una letra en especifico. Usa la funcion filter()
 # ================================================================================================
 
@@ -421,10 +429,11 @@ print()
 
 
 # ================================================================================================
-# EJERCICIO 15: Crea una funcion lambda que sume 3 a cada numero de una lista dada.
+# EJERCICIO 15
+# Crea una funcion lambda que sume 3 a cada numero de una lista dada.
 # ================================================================================================
 
-# Una funcion lambda es una funcion pequeña y anonima que se escribe en una linea
+# Una funcion lambda es una funcion pequeÃ±a y anonima que se escribe en una linea
 # En este caso, tomamos un numero y le sumamos 3
 sumar_tres = lambda lista: list(map(lambda x: x + 3, lista))
 
@@ -438,7 +447,8 @@ print()
 
 
 # ================================================================================================
-# EJERCICIO 16: Escribe una funcion que tome una cadena de texto y un numero entero n como 
+# EJERCICIO 16
+# Escribe una funcion que tome una cadena de texto y un numero entero n como 
 # parametros y devuelva una lista de todas las palabras que sean mas largas que n. 
 # Usa la funcion filter()
 # ================================================================================================
@@ -466,7 +476,8 @@ print()
 
 
 # ================================================================================================
-# EJERCICIO 17: Crea una funcion que tome una lista de digitos y devuelva el numero 
+# EJERCICIO 17
+# Crea una funcion que tome una lista de digitos y devuelva el numero 
 # correspondiente. Por ejemplo, [5,7,2] corresponde al numero quinientos setenta y dos (572). 
 # Usa la funcion reduce()
 # ================================================================================================
@@ -495,7 +506,8 @@ print()
 
 
 # ================================================================================================
-# EJERCICIO 18: Escribe un programa en Python que cree una lista de diccionarios que contenga 
+# EJERCICIO 18
+# Escribe un programa en Python que cree una lista de diccionarios que contenga 
 # informacion de estudiantes (nombre, edad, calificacion) y use la funcion filter para extraer 
 # a los estudiantes con una calificacion mayor o igual a 90. Usa la funcion filter()
 # ================================================================================================
@@ -527,7 +539,8 @@ print()
 
 
 # ================================================================================================
-# EJERCICIO 19: Crea una funcion lambda que filtre los numeros impares de una lista dada.
+# EJERCICIO 19
+# Crea una funcion lambda que filtre los numeros impares de una lista dada.
 # ================================================================================================
 
 # Una funcion lambda que filtra numeros impares
@@ -544,7 +557,8 @@ print()
 
 
 # ================================================================================================
-# EJERCICIO 20: Para una lista con elementos tipo integer y string obten una nueva lista solo 
+# EJERCICIO 20
+# Para una lista con elementos tipo integer y string obten una nueva lista solo 
 # con los valores int. Usa la funcion filter()
 # ================================================================================================
 
@@ -705,7 +719,7 @@ def primer_duplicado(lista):
         # Si el elemento ya esta en vistos, es el primer duplicado
         if elemento in vistos:
             return elemento
-        # Añado el elemento al conjunto de vistos
+        # AÃ±ado el elemento al conjunto de vistos
         vistos.add(elemento)
     
     # Si no hay duplicados, retorno None
@@ -793,8 +807,9 @@ print(f"'hello' y 'world' son anagramas: {son_anagramas('hello', 'world')}")
 print(f"'Enrique' y 'quieren' son anagramas: {son_anagramas('Enrique', 'quieren')}")
 print()
 
-# EJERCICIO 31
+
 # ============================================
+# EJERCICIO 31
 # Crea una funcion que solicite al usuario ingresar una lista de nombres y luego solicite un nombre para buscar en
 # esa lista. Si el nombre esta en la lista, se imprime un mensaje indicando que fue encontrado, de lo contrario, se
 # lanza una excepcion.
@@ -817,7 +832,7 @@ def buscar_nombre_en_lista():
     lista_nombres = [nombre.strip() for nombre in nombres_texto.split(',')]
     
     # Ahora le pregunto que nombre quiere buscar
-    nombre_buscar = input("\n¿Que nombre quieres buscar?: ").strip()
+    nombre_buscar = input("\nÂ¿Que nombre quieres buscar?: ").strip()
     
     try:
         # Aqui intento buscar el nombre en la lista
@@ -840,22 +855,13 @@ print()
 
 # ============================================
 # EJERCICIO 32
+# Crea una funcion que tome un nombre completo y una lista de empleados, busque el nombre completo en la lista y
+# devuelve el puesto del empleado si esta en la lista, de lo contrario, devuelve un mensaje indicando que la persona
+# no trabaja aqui.
 # ============================================
-"""
-32. Crea una funcion que tome un nombre completo y una lista de empleados, busque el nombre completo en la lista y
-devuelve el puesto del empleado si esta en la lista, de lo contrario, devuelve un mensaje indicando que la persona
-no trabaja aqui.
-"""
 
 def buscar_empleado(nombre_completo, lista_empleados):
-    """
-    Esta funcion la hice para buscar empleados en una lista
-    Al principio no entendia bien los diccionarios pero ya le cogi el truco
-    
-    Parametros que necesito:
-    - nombre_completo: el nombre que estoy buscando
-    - lista_empleados: donde tengo guardados todos los empleados
-    """
+    # Esta funcion la hice para buscar empleados en una lista
     # Voy recorriendo uno por uno los empleados
     for empleado in lista_empleados:
         # Compruebo si el nombre es el que busco
@@ -883,10 +889,8 @@ print()
 
 # ============================================
 # EJERCICIO 33
+# Crea una funcion lambda que sume elementos correspondientes de dos listas dadas.
 # ============================================
-"""
-33. Crea una funcion lambda que sume elementos correspondientes de dos listas dadas.
-"""
 
 # Tuve que buscar que era una lambda, es como una funcion pero mas corta
 # zip() lo entendi como que empareja elementos de las listas
@@ -904,54 +908,36 @@ print()
 
 # ============================================
 # EJERCICIO 34
+# Crea la clase Arbol, define un arbol generico con un tronco y ramas como atributos.
 # ============================================
-"""
-34. Crea la clase Arbol, define un arbol generico con un tronco y ramas como atributos.
-"""
 
 class Arbol:
-    """
-    Mi primera clase compleja! Me costo entender el concepto de clase
-    pero ahora veo que es como crear mi propio tipo de objeto
-    """
+    # Mi primera clase compleja! Me costo entender el concepto de clase
     
     def __init__(self):
-        """
-        Aqui inicializo mi arbol con valores basicos
-        """
-        self.tronco = 1  # El arbol empieza pequeñito
+        # Aqui inicializo mi arbol con valores basicos
+        self.tronco = 1  # El arbol empieza pequeÃ±ito
         self.ramas = []  # Al principio no tiene ramas
     
     def crecer_tronco(self):
-        """
-        Este metodo lo hice para que el tronco crezca de uno en uno
-        """
+        # Este metodo lo hice para que el tronco crezca de uno en uno
         self.tronco += 1
         print(f"El tronco crecio! Ahora mide: {self.tronco}")
     
     def nueva_rama(self):
-        """
-        Con este metodo añado ramas nuevas a mi arbol
-        Siempre empiezan con tamaño 1
-        """
+        # Con este metodo aÃ±ado ramas nuevas a mi arbol
         self.ramas.append(1)
-        print(f"Nueva rama añadida! Total de ramas: {len(self.ramas)}")
+        print(f"Nueva rama aÃ±adida! Total de ramas: {len(self.ramas)}")
     
     def crecer_ramas(self):
-        """
-        Aqui hago que todas las ramas crezcan a la vez
-        Me costo entender como modificar todos los elementos de la lista
-        """
+        # Aqui hago que todas las ramas crezcan a la vez
         # Tuve que usar un bucle para cambiar cada rama
         for i in range(len(self.ramas)):
             self.ramas[i] += 1
         print(f"Todas las ramas crecieron! Longitudes: {self.ramas}")
     
     def quitar_rama(self, posicion):
-        """
-        Este metodo quita una rama segun su posicion
-        Tuve que tener cuidado con los indices que empiezan en 0
-        """
+        # Este metodo quita una rama segun su posicion
         if 0 <= posicion < len(self.ramas):
             rama_quitada = self.ramas.pop(posicion)
             print(f"Rama en posicion {posicion} quitada (longitud: {rama_quitada})")
@@ -959,10 +945,7 @@ class Arbol:
             print(f"No hay rama en la posicion {posicion}")
     
     def info_arbol(self):
-        """
-        Aqui devuelvo toda la informacion del arbol en un diccionario
-        Me parecio util para ver el estado completo
-        """
+        # Aqui devuelvo toda la informacion del arbol en un diccionario
         info = {
             'longitud_tronco': self.tronco,
             'numero_ramas': len(self.ramas),
@@ -978,13 +961,13 @@ mi_arbol = Arbol()
 print("\n1. Hacer crecer el tronco:")
 mi_arbol.crecer_tronco()
 
-print("\n2. Añadir una nueva rama:")
+print("\n2. AÃ±adir una nueva rama:")
 mi_arbol.nueva_rama()
 
 print("\n3. Hacer crecer todas las ramas:")
 mi_arbol.crecer_ramas()
 
-print("\n4. Añadir dos nuevas ramas:")
+print("\n4. AÃ±adir dos nuevas ramas:")
 mi_arbol.nueva_rama()
 mi_arbol.nueva_rama()
 
@@ -1000,55 +983,38 @@ print()
 
 # ============================================
 # EJERCICIO 35 - NO EXISTE EN EL ENUNCIADO
+# No encontre el ejercicio 35 en el PDF
 # ============================================
-# Nota para el profesor: No encontre el ejercicio 35 en el PDF
+
 
 # ============================================
 # EJERCICIO 36
+# Crea la clase UsuarioBanco, representa a un usuario de un banco con su nombre, saldo y si tiene o no cuenta
+# corriente.
 # ============================================
-"""
-36. Crea la clase UsuarioBanco, representa a un usuario de un banco con su nombre, saldo y si tiene o no cuenta
-corriente.
-"""
 
 class UsuarioBanco:
-    """
-    Segunda clase que hago con excepciones incluidas
-    Me ayudo mucho el ejemplo anterior del arbol para entender mejor las clases
-    """
+    # Segunda clase que hago con excepciones incluidas
     
     def __init__(self, nombre, saldo, tiene_cuenta):
-        """
-        Aqui creo un nuevo usuario del banco con sus datos basicos
-        
-        Lo que necesito guardar:
-        - nombre: como se llama el usuario
-        - saldo: cuanto dinero tiene
-        - tiene_cuenta: si tiene cuenta corriente (True/False)
-        """
+        # Aqui creo un nuevo usuario del banco con sus datos basicos
         self.nombre = nombre
         self.saldo = saldo
         self.tiene_cuenta = tiene_cuenta
     
     def retirar_dinero(self, cantidad):
-        """
-        Metodo para sacar dinero de la cuenta
-        Tuve que añadir validacion para que no saque mas de lo que tiene
-        """
+        # Metodo para sacar dinero de la cuenta
         # Primero compruebo si tiene suficiente dinero
         if cantidad > self.saldo:
             # Si no tiene suficiente, lanzo error como pide el ejercicio
-            raise ValueError(f"Saldo insuficiente. Tienes {self.saldo}€ y quieres retirar {cantidad}€")
+            raise ValueError(f"Saldo insuficiente. Tienes {self.saldo}â‚¬ y quieres retirar {cantidad}â‚¬")
         
         # Si llega aqui es que si tiene suficiente
         self.saldo -= cantidad
-        print(f"{self.nombre} retiro {cantidad}€. Saldo actual: {self.saldo}€")
+        print(f"{self.nombre} retiro {cantidad}â‚¬. Saldo actual: {self.saldo}â‚¬")
     
     def transferir_dinero(self, otro_usuario, cantidad):
-        """
-        Este metodo transfiere dinero desde otro usuario hacia este
-        Al principio lo entendi al reves pero ya lo tengo claro
-        """
+        # Este metodo transfiere dinero desde otro usuario hacia este
         # Primero miro si el otro usuario tiene suficiente dinero
         if otro_usuario.saldo < cantidad:
             # Si no tiene, lanzo el error
@@ -1058,48 +1024,40 @@ class UsuarioBanco:
         otro_usuario.saldo -= cantidad  # Le quito al que envia
         self.saldo += cantidad          # Se lo sumo al que recibe (este usuario)
         
-        print(f"Transferencia exitosa de {cantidad}€")
-        print(f"  De: {otro_usuario.nombre} (saldo: {otro_usuario.saldo}€)")
-        print(f"  A: {self.nombre} (saldo: {self.saldo}€)")
+        print(f"Transferencia exitosa de {cantidad}â‚¬")
+        print(f"  De: {otro_usuario.nombre} (saldo: {otro_usuario.saldo}â‚¬)")
+        print(f"  A: {self.nombre} (saldo: {self.saldo}â‚¬)")
     
     def agregar_dinero(self, cantidad):
-        """
-        Metodo simple para ingresar dinero
-        Este fue el mas facil de hacer
-        """
+        # Metodo simple para ingresar dinero
         self.saldo += cantidad
-        print(f"{self.nombre} ingreso {cantidad}€. Saldo actual: {self.saldo}€")
+        print(f"{self.nombre} ingreso {cantidad}â‚¬. Saldo actual: {self.saldo}â‚¬")
 
 # Caso de uso del ejercicio 36
 print("=== Ejercicio 36: Clase UsuarioBanco ===")
 print("\n1. Crear dos usuarios:")
 alicia = UsuarioBanco("Alicia", 100, True)
 bob = UsuarioBanco("Bob", 50, True)
-print(f"- {alicia.nombre} con saldo inicial: {alicia.saldo}€")
-print(f"- {bob.nombre} con saldo inicial: {bob.saldo}€")
+print(f"- {alicia.nombre} con saldo inicial: {alicia.saldo}â‚¬")
+print(f"- {bob.nombre} con saldo inicial: {bob.saldo}â‚¬")
 
-print("\n2. Agregar 20€ al saldo de Bob:")
+print("\n2. Agregar 20â‚¬ al saldo de Bob:")
 bob.agregar_dinero(20)
 
-print("\n3. Transferir 50€ desde Bob a Alicia:")
+print("\n3. Transferir 50â‚¬ desde Bob a Alicia:")
 alicia.transferir_dinero(bob, 50)
 
-print("\n4. Retirar 30€ del saldo de Alicia:")
+print("\n4. Retirar 30â‚¬ del saldo de Alicia:")
 alicia.retirar_dinero(30)
 print()
 
 # ============================================
 # EJERCICIO 37
+# Crea una funcion llamada procesar_texto que procesa un texto segun la opcion especificada.
 # ============================================
-"""
-37. Crea una funcion llamada procesar_texto que procesa un texto segun la opcion especificada.
-"""
 
 def contar_palabras(texto):
-    """
-    Esta funcion cuenta cuantas veces aparece cada palabra
-    Me gusto porque es como hacer estadisticas del texto
-    """
+    # Esta funcion cuenta cuantas veces aparece cada palabra
     # Primero paso todo a minusculas y separo las palabras
     palabras = texto.lower().split()
     
@@ -1116,18 +1074,12 @@ def contar_palabras(texto):
     return contador
 
 def reemplazar_palabras(texto, palabra_original, palabra_nueva):
-    """
-    Esta funcion cambia una palabra por otra en todo el texto
-    Es como el buscar y reemplazar de Word que uso mucho
-    """
+    # Esta funcion cambia una palabra por otra en todo el texto
     # Uso replace que lo busque y es perfecto para esto
     return texto.replace(palabra_original, palabra_nueva)
 
 def eliminar_palabra(texto, palabra):
-    """
-    Aqui elimino una palabra especifica del texto
-    Tuve que pensar un poco como hacerlo sin replace
-    """
+    # Aqui elimino una palabra especifica del texto
     # Separo el texto en palabras individuales
     palabras = texto.split()
     
@@ -1139,10 +1091,7 @@ def eliminar_palabra(texto, palabra):
     return ' '.join(palabras_filtradas)
 
 def procesar_texto(texto, opcion, *args):
-    """
-    Esta es la funcion principal que llama a las otras segun la opcion
-    Lo de *args me costo mucho entender, son argumentos variables
-    """
+    # Esta es la funcion principal que llama a las otras segun la opcion
     if opcion == "contar":
         # Para contar no necesito argumentos extra
         return contar_palabras(texto)
@@ -1186,19 +1135,14 @@ print()
 
 # ============================================
 # EJERCICIO 38
+# Genera un programa que nos diga si es de noche, de dia o tarde segun la hora proporcionada por el usuario.
 # ============================================
-"""
-38. Genera un programa que nos diga si es de noche, de dia o tarde segun la hora proporcionada por el usuario.
-"""
 
 def determinar_momento_del_dia():
-    """
-    Funcion que determina si es dia, tarde o noche
-    Este fue facil, solo usar condicionales con las horas
-    """
+    # Funcion que determina si es dia, tarde o noche
     try:
         # Le pido al usuario que escriba la hora
-        hora = int(input("¿Que hora es? (0-23): "))
+        hora = int(input("Â¿Que hora es? (0-23): "))
         
         # Verifico que sea una hora valida (entre 0 y 23)
         if hora < 0 or hora > 23:
@@ -1227,21 +1171,16 @@ print()
 
 # ============================================
 # EJERCICIO 39
+# Escribe un programa que determine que calificacion en texto tiene un alumno en base a su calificacion numerica.
+# Las reglas de calificacion son:
+# - 0 - 69 insuficiente
+# - 70 - 79 bien
+# - 80 - 89 muy bien
+# - 90 - 100 excelente
 # ============================================
-"""
-39. Escribe un programa que determine que calificacion en texto tiene un alumno en base a su calificacion numerica.
-Las reglas de calificacion son:
-- 0 - 69 insuficiente
-- 70 - 79 bien  
-- 80 - 89 muy bien
-- 90 - 100 excelente
-"""
 
 def obtener_calificacion_texto():
-    """
-    Convierte una nota numerica en su equivalente en texto
-    Me recuerda a cuando recibia las notas en el colegio
-    """
+    # Convierte una nota numerica en su equivalente en texto
     try:
         # Pido la nota al usuario
         nota = float(input("Ingresa la calificacion numerica (0-100): "))
@@ -1272,18 +1211,13 @@ obtener_calificacion_texto()
 print()
 
 # ============================================
-# EJERCICIO 40 
+# EJERCICIO 40
+# Escribe una funcion que tome dos parametros: figura (una cadena que puede ser "rectangulo", "circulo" o
+# "triangulo") y datos (una tupla con los datos necesarios para calcular el area de la figura).
 # ============================================
-"""
-40. Escribe una funcion que tome dos parametros: figura (una cadena que puede ser "rectangulo", "circulo" o 
-"triangulo") y datos (una tupla con los datos necesarios para calcular el area de la figura).
-"""
 
 def calcular_area(figura, datos):
-    """
-    Calcula el area de diferentes figuras geometricas
-    Me gusta porque uso las formulas que aprendi en matematicas
-    """
+    # Calcula el area de diferentes figuras geometricas
     
     if figura == "rectangulo":
         # Para el rectangulo necesito base y altura
@@ -1330,23 +1264,18 @@ print()
 
 # ============================================
 # EJERCICIO 41
+# En este ejercicio, se te pedira que escribas un programa en Python que utilice condicionales para determinar el
+# monto final de una compra en una tienda en linea, despues de aplicar un descuento.
 # ============================================
-"""
-41. En este ejercicio, se te pedira que escribas un programa en Python que utilice condicionales para determinar el
-monto final de una compra en una tienda en linea, despues de aplicar un descuento.
-"""
 
 def calcular_precio_final():
-    """
-    Calcula el precio final de una compra con descuentos
-    Me recuerda a cuando compro online y uso cupones
-    """
+    # Calcula el precio final de una compra con descuentos
     print("TIENDA ONLINE - Calculadora de Precios")
     print("-" * 40)
     
     try:
         # Paso 1: Pido el precio original del articulo
-        precio_original = float(input("Ingresa el precio original del articulo (€): "))
+        precio_original = float(input("Ingresa el precio original del articulo (â‚¬): "))
         
         # Verifico que el precio sea positivo (no puede ser 0 o negativo)
         if precio_original <= 0:
@@ -1354,11 +1283,11 @@ def calcular_precio_final():
             return
         
         # Paso 2: Pregunto si tiene cupon de descuento
-        tiene_cupon = input("¿Tienes un cupon de descuento? (si/no): ").lower()
+        tiene_cupon = input("Â¿Tienes un cupon de descuento? (si/no): ").lower()
         
         # Paso 3: Si tiene cupon, pido el valor del descuento
-        if tiene_cupon == "si" or tiene_cupon == "sí":
-            valor_cupon = float(input("Ingresa el valor del cupon de descuento (€): "))
+        if tiene_cupon == "si" or tiene_cupon == "sÃ­":
+            valor_cupon = float(input("Ingresa el valor del cupon de descuento (â‚¬): "))
             
             # Paso 4: Verifico si el cupon es valido y lo aplico
             if valor_cupon > 0:
@@ -1369,7 +1298,7 @@ def calcular_precio_final():
                 else:
                     precio_final = precio_original - valor_cupon
                     
-                print(f"\nDescuento aplicado: -{valor_cupon}€")
+                print(f"\nDescuento aplicado: -{valor_cupon}â‚¬")
             else:
                 # Si el cupon no es valido (0 o negativo)
                 print("\nEl cupon no es valido (debe ser mayor que 0)")
@@ -1381,10 +1310,10 @@ def calcular_precio_final():
         
         # Paso 5: Muestro el resumen final
         print("-" * 40)
-        print(f"Precio original: {precio_original:.2f}€")
-        if tiene_cupon in ["si", "sí"] and valor_cupon > 0:
-            print(f"Descuento: -{valor_cupon:.2f}€")
-        print(f"PRECIO FINAL: {precio_final:.2f}€")
+        print(f"Precio original: {precio_original:.2f}â‚¬")
+        if tiene_cupon in ["si", "sÃ­"] and valor_cupon > 0:
+            print(f"Descuento: -{valor_cupon:.2f}â‚¬")
+        print(f"PRECIO FINAL: {precio_final:.2f}â‚¬")
         print("-" * 40)
         
     except ValueError:
