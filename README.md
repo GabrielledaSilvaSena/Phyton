@@ -191,7 +191,7 @@ Tras completar este proyecto, los siguientes objetivos de aprendizaje incluyen:
 
 ---
 
-**Fecha de entrega:** Noviembre 2025  
+**Fecha de entrega:** Diciembre 2025  
 **Bootcamp:** Data & Analytics  
 
 ---
