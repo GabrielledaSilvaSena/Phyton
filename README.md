@@ -148,10 +148,10 @@ Los **bucles for y while** resultaron intuitivos desde el inicio. Las estructura
 ### Errores y Correcciones
 
 Durante el desarrollo encontré varios problemas:
-- Olvidé importar el módulo `math` para el ejercicio del círculo, lo que generó un error de `NameError`.
+- Al principio olvidé importar el módulo `math` para el ejercicio del círculo, lo que me generó errores de ejecución.
 - En algunos ejercicios confundí la lógica para números **pares e impares**.
-- Hubo problemas de codificación con ciertos caracteres en los comentarios.
-- No todos los ejercicios siguen exactamente la metodología pedida en el enunciado, aunque el resultado final es correcto.
+- Tuve problemas de codificación con caracteres especiales (ñ, tildes) en los comentarios.
+
 
 ---
 
