@@ -153,6 +153,7 @@ print("")
 # ============================================
 # EJERCICIO 6
 # Escribe una funcion que calcule el factorial de un numero de manera recursiva.
+# ============================================
 
 def calcular_factorial(numero):
     # Si el numero es 0 o 1, el factorial es 1 (caso base)
@@ -245,12 +246,12 @@ except (ValueError, ZeroDivisionError) as e:
 print()
 
 # ============================================
-# ============================================
 # EJERCICIO 9
 # Escribe una funcion que tome una lista de nombres de mascotas como parametro
 # y devuelva una nueva lista excluyendo ciertas mascotas prohibidas en EspaÃ±a.
 # La lista de mascotas a excluir es ["Mapache", "Tigre", "Serpiente Piton", "Cocodrilo", "Oso"]
 # Usa la funcion filter()
+# ============================================
 
 def filtrar_mascotas_permitidas(lista_mascotas):
     # Lista de mascotas prohibidas en EspaÃ±a
@@ -273,9 +274,9 @@ print()
 
 # ============================================
 # EJERCICIO 10
-# ============================================
 # Escribe una funcion que reciba una lista de numeros y calcule su promedio.
 # Si la lista esta vacia, lanza una excepcion personalizada y maneja el error adecuadamente.
+# ============================================
 
 # Primero creamos nuestra propia excepcion personalizada
 class ListaVaciaError(Exception):
@@ -850,7 +851,6 @@ print()
 
 
 # ============================================
-# ============================================
 # EJERCICIO 32
 # Crea una funcion que tome un nombre completo y una lista de empleados, busque el nombre completo en la lista y
 # devuelve el puesto del empleado si esta en la lista, de lo contrario, devuelve un mensaje indicando que la persona
@@ -892,7 +892,6 @@ print(buscar_empleado('Pedro Martinez', empleados))
 print()
 
 # ============================================
-# ============================================
 # EJERCICIO 33
 # Crea una funcion lambda que sume elementos correspondientes de dos listas dadas.
 # ============================================
@@ -911,7 +910,6 @@ print(f"Lista 2: {lista2}")
 print(f"Suma: {resultado}")
 print()
 
-# ============================================
 # ============================================
 # EJERCICIO 34
 # Crea la clase Arbol, define un arbol generico con un tronco y ramas como atributos.
@@ -1012,7 +1010,6 @@ print()
 # Nota para el profesor: No encontre el ejercicio 35 en el PDF
 
 # ============================================
-# ============================================
 # EJERCICIO 36
 # Crea la clase UsuarioBanco, representa a un usuario de un banco con su nombre, saldo y si tiene o no cuenta
 # corriente.
@@ -1097,10 +1094,9 @@ print()
 
 # ============================================
 # EJERCICIO 37
-"""
-37. Crea una funcion llamada procesar_texto que procesa un texto segun la opcion especificada.
-"""
-
+Crea una funcion llamada procesar_texto que procesa un texto segun la opcion especificada.
+# ============================================
+    
 def contar_palabras(texto):
     """
     Esta funcion cuenta cuantas veces aparece cada palabra
@@ -1191,7 +1187,6 @@ print(f'"{resultado_eliminar}"')
 print()
 
 # ============================================
-# ============================================
 # EJERCICIO 38
 # Genera un programa que nos diga si es de noche, de dia o tarde segun la hora proporcionada por el usuario.
 # ============================================
@@ -1230,7 +1225,6 @@ print("=== Ejercicio 38: Momento del dia ===")
 determinar_momento_del_dia()
 print()
 
-# ============================================
 # ============================================
 # EJERCICIO 39
 # Escribe un programa que determine que calificacion en texto tiene un alumno en base a su calificacion numerica.
@@ -1277,11 +1271,9 @@ print()
 
 # ============================================
 # EJERCICIO 40 
-# ============================================
-"""
-40. Escribe una funcion que tome dos parametros: figura (una cadena que puede ser "rectangulo", "circulo" o 
+Escribe una funcion que tome dos parametros: figura (una cadena que puede ser "rectangulo", "circulo" o 
 "triangulo") y datos (una tupla con los datos necesarios para calcular el area de la figura).
-"""
+# ============================================
 
 def calcular_area(figura, datos):
     """
@@ -1332,7 +1324,6 @@ print("\n3. Triangulo (base=6, altura=4):")
 print(calcular_area("triangulo", (6, 4)))
 print()
 
-# ============================================
 # ============================================
 # EJERCICIO 41
 # En este ejercicio, se te pedira que escribas un programa en Python que utilice condicionales para determinar el
